@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KANKYO Synthyard</title>
+  <meta name="description" content="夕刻を迎える屋外のロケーションと電子音で、誰もが自由に過ごせる心地良い空間をつくるプロジェクト。Machine live only, using hardware and modular synths.">
+
+  <!-- Google tag (gtag.js) -->
+<script async src=""></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-06VSWR0WJP');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-ons-180.png?v=1">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=3">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="text-xs sm:text-sm md:text-base leading-relaxed text-[#24471d] bg-white font-sans" style="font-family: 'Noto Sans JP', sans-serif;">
+
+  <!-- ヘッダー -->
+<header class="relative top-0 left-0 w-full h-20 bg-white z-50 px-6
+               flex items-center justify-between overflow-visible">
+  <!-- 左：PCナビ -->
+  <nav class="hidden md:flex gap-6">
+    <a href="#party"  class="hover:underline">店舗紹介</a>
+    <a href="#access" class="hover:underline">アクセス</a>
+  </nav>
+
+<!-- スマホだけ：左上固定（背景丸なし・透明） -->
+<button id="menu-toggle" class="md:hidden absolute left-5 top-5 z-[60] p-3 w-12 h-12
+         flex flex-col items-center justify-center gap-[10px] focus:outline-none">
+  <span class="block w-10 h-0.5 bg-[#24471d] rounded"></span>
+  <span class="block w-10 h-0.5 bg-[#24471d] rounded"></span>
+  <span class="block w-10 h-0.5 bg-[#24471d] rounded"></span>
+</button>
+
+</header>
+
+
+<nav id="mobile-menu"
+  class="md:hidden fixed inset-y-0 left-2 w-[40vw] max-w-sm bg-white px-4 py-4 pt-24
+         transition-all duration-300 ease-out transform scale-95 opacity-0 pointer-events-none z-40">
+  <a href="#shops" class="block text-lg leading-[3rem]">Free Open Air Party</a>
+  <a href="#access" class="block text-lg leading-[3rem]">ACCESS</a>
+</nav>
+
+<!-- メインビジュアル -->
+<section class="w-full min-h-[400px] bg-white flex flex-col items-center justify-center text-center px-8 pt-6 md:pt-10">
+  <h1 class="flex flex-col items-center gap-6 mt-[120px] md:mt-16">
+  </h1>
+</section>
+
+
+
+
+<!-- 店舗紹介 -->
+      <section id="party" class="scroll-mt-20 pt-36 md:pt-48 pb-12 md:pb-16 bg-white text-left">
+        <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40">
+          <!-- 見出し：スマホ/PCとも少し小さめ、色gray-800 -->
+          <h2 class="text-xl md:text-2xl font-semibold mb-6 md:mb-8 text-[#514c47]">Free Open Air Party</h2>
+          <p class="text-xs md:text-base leading-[2] md:leading-loose lg:leading-[2.2] max-w-none">
+            私たちは､環境問題に関連した研究レポートや国際会議ツール、環境広告に力を入れ、環境に配慮した印刷（水なし印刷、森林認証紙など）を得意としています。
+            <span class="block mb-6"></span>
+            その他、ポスター、エディトリアル、雑誌広告や、CI・ロゴや販促ツール､パッケージ、Web、サインデザインなど幅広い制作を行っています。 
+            <span class="block mb-6"></span>
+            クリエイティブの核となるのは生きたデザイン力だと思っています。素となるアイデアをゆたかに発想できるよう広い視野を待ち、単なる見た目の美しさだけでなく、読みやすさや温もりのあるデザインを目指しています。
+          </p>
+        </div>
+      </section>
+
+<!-- アクセス -->
+<section id="access"
+  class="scroll-mt-20 mt-16 md:mt-24 pt-6 md:pt-15 pb-10 px-6 text-center">
+
+  <h2 class="text-lg md:text-2xl font-medium tracking-wide text-[#24471d] mt-0 md:mt-2 mb-4 md:mb-5">
+    アクセス
+  </h2>
+<img src="img/ill_access.png" alt=""
+     class="block mx-auto w-[80px] md:w-[100px] h-auto mb-3 md:mb-4">
+</div>
+  <p class="text-sm md:text-base leading-loose max-w-2xl mx-auto mb-0 md:mb-2">
+    千葉県木更津市
+  </p>
+</section>
+
+<!-- 地図 -->
+<div class="w-full bg-gray-200 flex items-center justify-center mt-0 md:mt-4">
+<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d632.2615649424743!2d131.60324142528646!3d33.237775442036465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzPCsDE0JzE2LjIiTiAxMzHCsDM2JzExLjQiRQ!5e0!3m2!1sja!2sjp!4v1755590403105!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+  <!-- フッター -->
+<footer class="scroll-mt-20 py-8 bg-white text-center text-sm border-t border-[#24471d]">
+  &copy;2026 KANKYO Synthyard All rights reserved.
+</footer>
+
+<a href="#" id="backToTop"
+   class="fixed bottom-4 right-4 w-12 h-12 bg-[#FFFFFF] text-xl
+          flex items-center justify-center text-center leading-none
+          rounded-full border border-[#24471d] hover:bg-[#f5f5f5] z-50 hidden">
+  ↑
+</a>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuLinks = mobileMenu.querySelectorAll('a');
+  const backToTop = document.getElementById('backToTop');
+
+  // スマホメニューのフェードアニメーション表示切り替え
+  menuToggle.addEventListener('click', () => {
+    const isVisible = mobileMenu.classList.contains('opacity-100');
+
+    if (isVisible) {
+      mobileMenu.classList.remove('opacity-100', 'scale-100');
+      mobileMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+    } else {
+      mobileMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+      mobileMenu.classList.add('opacity-100', 'scale-100');
+    }
+  });
+
+  // ページ内リンクでスクロール＋メニューを閉じる
+  menuLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').replace('#', '');
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        const headerOffset = 80;
+        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+
+      // メニューをフェードアウト
+      mobileMenu.classList.remove('opacity-100', 'scale-100');
+      mobileMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+    });
+  });
+
+// トップへ戻るボタンの表示切り替え
+   window.addEventListener('scroll', () => {
+     if (window.scrollY > 300) {
+       backToTop.classList.remove('hidden');
+     } else {
+       backToTop.classList.add('hidden');
+     }
+   });
+
+  // ▼ トップへ戻る（確実に0まで）
+  backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    // メニューを閉じる（任意）
+    if (mobileMenu) {
+      mobileMenu.classList.remove('opacity-100', 'scale-100');
+      mobileMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+    }
+    // スムーズスクロール
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // iOS Safariが止まりやすい対策
+  });
+ });
+</script>
+</body>
+</html>
