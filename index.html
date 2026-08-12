@@ -6,66 +6,109 @@
   <title>KANKYO Synthyard</title>
   <meta name="description" content="夕刻を迎える屋外のロケーションと電子音で、誰もが自由に過ごせる心地良い空間をつくるプロジェクト。Machine live only, using hardware and modular synths.">
 
-  <!-- Google tag (gtag.js) -->
-<script async src=""></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-ons-180.png?v=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=3">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  gtag('config', 'G-06VSWR0WJP');
-</script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter','Noto Sans JP',sans-serif; }
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-ons-180.png?v=1">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=3">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
-<script src="https://cdn.tailwindcss.com"></script>
+    /* スプラッシュ：フェードイン→アウト（2.2s） */
+   @keyframes logoFadeInOut {
+  0%   { opacity: 0; }
+  60%  { opacity: 1; }  /* ← ここまででフェードイン完了（60%） */
+  100% { opacity: 0; }  /* ← 残り40%を使ってゆっくりフェードアウト */
+}
+.logo-fade {
+  opacity: 0;
+  animation: logoFadeInOut 2200ms ease forwards; /* 総時間は必要に応じて調整可 */
+  will-change: opacity;
+}
+
+/* HISTORYの2カラム*/
+.history-grid{
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) !important;
+  row-gap: 0.75rem !important;
+  column-gap: 0.625rem !important;   /* ← 0.5rem → 0.625rem（約10px） */
+}
+.history-grid > div:nth-child(odd){
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+}
+.history-grid > div:nth-child(even){
+  min-width: 0 !important;
+}
+@media (min-width: 768px){
+  .history-grid{
+    column-gap: 1.125rem !important; /* ← 1rem → 1.125rem（約18px） */
+  }
+}
+  </style>
 </head>
-<body class="text-xs sm:text-sm md:text-base leading-relaxed text-[#24471d] bg-white font-sans" style="font-family: 'Noto Sans JP', sans-serif;">
+<body class="text-xs leading-loose bg-white text-gray-800 font-normal min-h-[100svh]">
 
-  <!-- ヘッダー -->
-<header class="relative top-0 left-0 w-full h-20 bg-white z-50 px-6
-               flex items-center justify-between overflow-visible">
-  <!-- 左：PCナビ -->
-  <nav class="hidden md:flex gap-6">
-    <a href="#party"  class="hover:underline">店舗紹介</a>
-    <a href="#access" class="hover:underline">アクセス</a>
-  </nav>
+  <!-- ===== スプラッシュ（ロゴのみ表示） ===== -->
+<div id="splash" class="fixed inset-0 z-[100] bg-[#d6d5cc] flex items-center justify-center">
+  <img src="img/ksy_logo.svg" alt="kankyo-synthyard"
+       class="w-[50vw] max-w-[340px] h-auto logo-fade">
+</div>
 
-<!-- スマホだけ：左上固定（背景丸なし・透明） -->
-<button id="menu-toggle" class="md:hidden absolute left-5 top-5 z-[60] p-3 w-12 h-12
-         flex flex-col items-center justify-center gap-[10px] focus:outline-none">
-  <span class="block w-10 h-0.5 bg-[#24471d] rounded"></span>
-  <span class="block w-10 h-0.5 bg-[#24471d] rounded"></span>
-  <span class="block w-10 h-0.5 bg-[#24471d] rounded"></span>
-</button>
+  <!-- ===== サイト全体（初期は非表示） ===== -->
+  <div id="site" class="opacity-0 pointer-events-none select-none">
 
-</header>
+    <!-- ヘッダー（背景 #b3b2aa） -->
+    <header class="fixed top-0 left-0 w-full h-20 md:h-28 bg-[#b3b2aa] z-50 
+                   px-4 md:px-8 flex items-center justify-between pt-[env(safe-area-inset-top)]">
+      <!-- 左端：ロゴ（スマホは少し右寄せ） -->
+      <a href="#" class="shrink-0">
+  <img src="img/ksy_logo_w.svg" alt="match-up.co.ltd"
+       class="h-5 md:h-8 w-auto ml-2 md:ml-0 mt-1 md:mt-1.5">
+</a>
 
+      <!-- PCナビ -->
+      <nav class="hidden xl:flex gap-8 text-white text-base md:text-base relative top-[2px] md:top-[3px]">
+        <a href="#message" class="hover:underline">MESSAGE</a>
+        <a href="#company" class="hover:underline">COMPANY INFO</a>
+        <a href="#history" class="hover:underline">HISTORY</a>
+      </nav>
 
+      <!-- ハンバーガー -->
+      <button id="menu-toggle"
+        class="xl:hidden w-12 h-12 flex flex-col items-center justify-center gap-[7px]"
+        aria-label="Open menu" aria-expanded="false">
+        <span class="sr-only">Open menu</span>
+        <span class="block w-8 h-0.5 bg-white rounded"></span>
+        <span class="block w-8 h-0.5 bg-white rounded"></span>
+        <span class="block w-8 h-0.5 bg-white rounded"></span>
+      </button>
+    </header>
+
+    <main class="flex-1">
+      <!-- モバイルメニュー -->
 <nav id="mobile-menu"
-  class="md:hidden fixed inset-y-0 left-2 w-[40vw] max-w-sm bg-white px-4 py-4 pt-24
-         transition-all duration-300 ease-out transform scale-95 opacity-0 pointer-events-none z-40">
-  <a href="#shops" class="block text-lg leading-[3rem]">Free Open Air Party</a>
-  <a href="#access" class="block text-lg leading-[3rem]">ACCESS</a>
+  class="xl:hidden fixed inset-y-0 right-0 w-60 max-w-[70vw] bg-[#676354] px-6 py-6
+         transition-transform duration-300 ease-out translate-x-full z-50 shadow-xl">
+  <button id="menu-close" class="text-3xl mb-2 text-white">×</button>
+  <div class="mt-10 space-y-5 leading-[32px]">
+    <a href="#message" class="block text-white text-base">MESSAGE</a>
+    <a href="#company" class="block text-white text-base">COMPANY INFO</a>
+    <a href="#history" class="block text-white text-base">HISTORY</a>
+  </div>
 </nav>
+      <div id="menu-overlay" class="fixed inset-0 bg-white/30 z-40 hidden"></div>
 
-<!-- メインビジュアル -->
-<section class="w-full min-h-[400px] bg-white flex flex-col items-center justify-center text-center px-8 pt-6 md:pt-10">
-  <h1 class="flex flex-col items-center gap-6 mt-[120px] md:mt-16">
-  </h1>
-</section>
-
-
-
-
-<!-- 店舗紹介 -->
-      <section id="party" class="scroll-mt-20 pt-36 md:pt-48 pb-12 md:pb-16 bg-white text-left">
+      <!-- MESSAGE -->
+      <section id="message" class="scroll-mt-20 pt-36 md:pt-48 pb-12 md:pb-16 bg-white text-left">
         <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40">
           <!-- 見出し：スマホ/PCとも少し小さめ、色gray-800 -->
-          <h2 class="text-xl md:text-2xl font-semibold mb-6 md:mb-8 text-[#514c47]">Free Open Air Party</h2>
+          <h2 class="text-xl md:text-2xl font-semibold mb-6 md:mb-8 text-[#514c47]">MESSAGE</h2>
           <p class="text-xs md:text-base leading-[2] md:leading-loose lg:leading-[2.2] max-w-none">
             私たちは､環境問題に関連した研究レポートや国際会議ツール、環境広告に力を入れ、環境に配慮した印刷（水なし印刷、森林認証紙など）を得意としています。
             <span class="block mb-6"></span>
@@ -76,104 +119,262 @@
         </div>
       </section>
 
-<!-- アクセス -->
-<section id="access"
-  class="scroll-mt-20 mt-16 md:mt-24 pt-6 md:pt-15 pb-10 px-6 text-center">
-
-  <h2 class="text-lg md:text-2xl font-medium tracking-wide text-[#24471d] mt-0 md:mt-2 mb-4 md:mb-5">
-    アクセス
-  </h2>
-<img src="img/ill_access.png" alt=""
-     class="block mx-auto w-[80px] md:w-[100px] h-auto mb-3 md:mb-4">
+            <!-- 区切り線 -->
+    <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40 my-6 md:my-8">
+  <div class="border-t border-[#b3b2aa]"></div>
 </div>
-  <p class="text-sm md:text-base leading-loose max-w-2xl mx-auto mb-0 md:mb-2">
-    千葉県木更津市
-  </p>
-</section>
 
-<!-- 地図 -->
+      <!-- COMPANY INFO -->
+<section id="company" class="scroll-mt-20 pt-10 md:pt-12 pb-12 md:pb-16 bg-white text-left">
+        <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40">
+          <!-- 見出し小さめ / gray-800 -->
+          <h2 class="text-xl md:text-2xl font-semibold mb-6 md:mb-8 text-[#514c47]">COMPANY INFO</h2>
+          <div class="text-xs md:text-base leading-[2] md:leading-loose lg:leading-[2.2] max-w-none">
+            <p class="mb-6 md:mb-12">商号：株式会社マッチアップ</p>
+
+            <div class="mb-8 md:mb-12">
+              <p class="mb-2 md:mb-3"><strong class="font-semibold text-gray-800">グラフィックデザイン</strong></p>
+              <p>ロゴマークから、新聞・雑誌広告、ポスターやパンフレットなど、企業やブランドのイメージをビジュアル化して的確に伝えられるようデザインコンセプトを構築し、それに基づいた多様なデザインを提供します。</p>
+            </div>
+
+            
+            <div class="mt-10 md:mt-12 mb-8 md:mb-12">
+              <p class="mb-2 md:mb-3"><strong class="font-semibold text-gray-800">印刷</strong></p>
+              <p>環境に配慮した印刷に対応可能です。あらゆる紙や印刷方法をご提案いたします。</p>
+            </div>
+
+            <div class="mt-10 md:mt-12 mb-8 md:mb-12">
+              <p class="mb-2 md:mb-3"><strong class="font-semibold text-gray-800">WEBデザイン</strong></p>
+              <p>コーポレートサイトや商品・サービスのキャンペーンサイトなど用途に応じて最適なサイト設計を行い、紙媒体との連携も社内でスムーズに行えます。</p>
+            </div>
+
+            <div class="mt-10 md:mt-12 mb-8 md:mb-12">
+              <p class="mb-2 md:mb-3"><strong class="font-semibold text-gray-800">パッケージデザイン</strong></p>
+              <p>商品コンセプトをどのようにアピールできるか、様々な要因・アプローチを考え、商品の機能性や、魅力を視覚的に分かりやすいデザインを作成します。</p>
+            </div>
+
+            <div class="mt-10 md:mt-12">
+              <p class="mb-2 md:mb-3"><strong class="font-semibold text-gray-800">CI・ロゴマーク</strong></p>
+              <p>企業やブランドの特徴、個性を魅力的にユーザーに伝えるためのデザインをします。</p>
+            </div>
+
+            <p class="mt-20">所在地：〒292-0014 千葉県木更津市高柳1569-25</p>
+            <p>代表者：代表取締役 佐藤龍也</p>
+          </div>
+        </div>
+      </section>
+
+            <!-- 区切り線 -->
+    <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40 my-6 md:my-8">
+  <div class="border-t border-[#b3b2aa]"></div>
+</div>
+
+      <!-- HISTORY -->
+<section id="history" class="scroll-mt-20 pt-10 md:pt-12 pb-12 md:pb-16 bg-white text-left">
+        <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40">
+          <h2 class="text-xl md:text-2xl font-semibold mb-6 md:mb-8 text-[#514c47]">HISTORY</h2>
+          <div class="history-grid text-xs md:text-base leading-[2] md:leading-loose lg:leading-[2.2]">
+            <div class="text-gray-800">2012年 3月</div>
+            <div>東京都港区に株式会社マッチアップ設立</div>
+
+            <div class="text-gray-800">2016年 10月</div>
+            <div>スケートボード専用バッグブランド escapo.tokyo 運営開始</div>
+
+            <div class="text-gray-800">2023年 12月</div>
+            <div>大分市中央町へ事務所移転</div>
+
+            <div class="text-gray-800">2025年 1月</div>
+            <div>大分市中央町にスケートボードプロショップ minimal skateboards オープン</div>
+            <div class="text-gray-800">2026年 5月</div>
+            <div>千葉県木更津市へ事務所移転</div>
+           <div class="text-gray-800">2026年 5月</div>
+            <div>千葉県木更津市へminimal skateboards移転</div>
+
+          </div>
+        </div>
+      </section>
+
+            <!-- 区切り線 -->
+    <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40 my-6 md:my-8">
+  <div class="border-t border-[#b3b2aa]"></div>
+</div>
+
+      <!-- LINK（escapoのインスタ～フッタ間を広め） -->
+      <section id="links" class="scroll-mt-20 pt-12 md:pt-16 pb-24 md:pb-32 bg-white text-left">
+        <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40 space-y-6 md:space-y-8">
+          
+          <!-- minimal -->
+          <p class="mlogo">
+            <a href="http://minimalskate.com" target="_blank" rel="noopener noreferrer">
+              <img src="img/minimal_logo.svg" alt="minimal skateboards"
+                   class="w-44 md:w-[240px] h-auto">
+            </a>
+          </p>
+          
+          <p class="text-xs md:text-base leading-[2] md:leading-loose lg:leading-[2.2]">
+            スケートボード専門のプロショップ “ミニマルスケートボード”<br>
+            在庫数1,000点以上の品揃えで初心者からベテランまで安心してお買い物頂けます
+          </p>
+<p class="flex gap-6 items-center">
+  <a href="https://www.instagram.com/minimal.skateboards" target="_blank" rel="noopener noreferrer">
+    <img src="img/ig.png" alt="Instagram" class="w-8 md:w-12 h-auto">
+  </a>
+  <a href="http://minimalskate.com" target="_blank" rel="noopener noreferrer">
+    <img src="img/weblink.svg" alt="Website" class="w-8 md:w-12 h-auto">
+  </a>
+</p>
+
+          <div class="h-8 md:h-16" aria-hidden="true"></div>
+
+          <!-- escapo -->
+          <p class="mlogo">
+            <a href="http://escapo.tokyo/" target="_blank" rel="noopener noreferrer">
+              <img src="img/escapo_logo.svg" alt="escapo.tokyo"
+                   class="w-36 md:w-[180px] h-auto">
+            </a>
+          </p>
+          <p class="text-xs md:text-base leading-[2] md:leading-loose lg:leading-[2.2]">
+            スケートボード専用バッグの設計を目的として2016年に誕生したバッグブランド “エスカポ”<br>
+            機能性や使用感にかかわる細かい設計や縫製などは妥協せず、品質を保ちながらコストを抑えた価格設定を目指しています
+          </p>
+          <p class="flex gap-6 items-center">
+            <a href="https://www.instagram.com/escapo.tokyo" target="_blank" rel="noopener noreferrer">
+              <img src="img/ig.png" alt="Instagram" class="w-8 md:w-12 h-auto">
+            </a>
+            <a href="http://escapo.tokyo/" target="_blank" rel="noopener noreferrer">
+    <img src="img/weblink.svg" alt="Website" class="w-8 md:w-12 h-auto">
+  </a>
+</p>
+
+          <div class="h-8 md:h-16" aria-hidden="true"></div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- 地図 -->
 <div class="w-full bg-gray-200 flex items-center justify-center mt-0 md:mt-4">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3253.0689700198163!2d139.90527934277557!3d35.378745350297756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018733226cf322d%3A0x10e46224828e3c21!2z5r2u5rWc5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1786525873437!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13012.27847521053!2d139.89781955960828!3d35.37872925843526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018733226cf322d%3A0x10e46224828e3c21!2z5r2u5rWc5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1786526780680!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
-  <!-- フッター -->
-<footer class="scroll-mt-20 py-8 bg-white text-center text-sm border-t border-[#24471d]">
-  &copy;2026 KANKYO Synthyard All rights reserved.
-</footer>
+    <!-- フッター（背景 #b3b2aa） -->
+    <footer class="scroll-mt-20 bg-[#b3b2aa] text-center text-sm text-white pb-[env(safe-area-inset-bottom)]">
+      <div class="py-6">&copy; 2026 KANKYO Synthyard all rights reserved.</div>
+    </footer>
 
-<a href="#" id="backToTop"
-   class="fixed bottom-4 right-4 w-12 h-12 bg-[#FFFFFF] text-xl
-          flex items-center justify-center text-center leading-none
-          rounded-full border border-[#24471d] hover:bg-[#f5f5f5] z-50 hidden">
-  ↑
-</a>
+    <!-- トップへ戻る -->
+    <a href="#" id="backToTop"
+       class="fixed bottom-20 right-4 w-12 h-12 bg-[#797574] text-white text-xl
+              flex items-center justify-center text-center leading-none
+              rounded-full shadow hover:bg-[#797574] z-50 hidden
+              border border-white">↑</a>
+  </div><!-- /#site -->
 
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const menuToggle = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuLinks = mobileMenu.querySelectorAll('a');
-  const backToTop = document.getElementById('backToTop');
-
-  // スマホメニューのフェードアニメーション表示切り替え
-  menuToggle.addEventListener('click', () => {
-    const isVisible = mobileMenu.classList.contains('opacity-100');
-
-    if (isVisible) {
-      mobileMenu.classList.remove('opacity-100', 'scale-100');
-      mobileMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-    } else {
-      mobileMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-      mobileMenu.classList.add('opacity-100', 'scale-100');
-    }
-  });
-
-  // ページ内リンクでスクロール＋メニューを閉じる
-  menuLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href').replace('#', '');
-      const targetElement = document.getElementById(targetId);
-
-      if (targetElement) {
-        const headerOffset = 80;
-        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
+  <!-- JS -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    /* --- スクロール位置の強制リセット --- */
+    (function () {
+      function forceTop() {
+        const html = document.documentElement;
+        const prev = html.style.scrollBehavior;
+        html.style.scrollBehavior = 'auto';
+        window.scrollTo(0, 0);
+        document.body.scrollTop = 0;
+        html.scrollTop = 0;
+        requestAnimationFrame(() => {
+          window.scrollTo(0, 0);
+          setTimeout(() => {
+            window.scrollTo(0, 0);
+            html.style.scrollBehavior = prev;
+          }, 60);
         });
       }
+      window.addEventListener('load', () => { if (!location.hash) forceTop(); });
+      window.addEventListener('pageshow', () => { if (!location.hash && window.scrollY < 200) forceTop(); });
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible' && !location.hash && window.scrollY < 200) forceTop();
+      });
+    })();
 
-      // メニューをフェードアウト
-      mobileMenu.classList.remove('opacity-100', 'scale-100');
-      mobileMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-    });
-  });
+    /* --- スプラッシュ制御：ロゴ終了後に即座にサイト表示（白画面の間を短縮） --- */
+    const splash = document.getElementById('splash');
+    const site   = document.getElementById('site');
+    const logo   = splash.querySelector('img');
 
-// トップへ戻るボタンの表示切り替え
-   window.addEventListener('scroll', () => {
-     if (window.scrollY > 300) {
-       backToTop.classList.remove('hidden');
-     } else {
-       backToTop.classList.add('hidden');
-     }
-   });
-
-  // ▼ トップへ戻る（確実に0まで）
-  backToTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    // メニューを閉じる（任意）
-    if (mobileMenu) {
-      mobileMenu.classList.remove('opacity-100', 'scale-100');
-      mobileMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+    function revealSite() {
+      splash.style.display = 'none';
+      site.classList.remove('opacity-0','pointer-events-none','select-none');
+      site.style.transition = 'opacity 200ms ease';
+      site.style.opacity = '1';
     }
-    // スムーズスクロール
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    // iOS Safariが止まりやすい対策
+
+    logo.addEventListener('animationend', revealSite);
+    // 念のためのフェイルセーフ（アニメ時間+α）
+    setTimeout(() => { if (splash.style.display !== 'none') revealSite(); }, 2650);
+
+    /* --- トップへ戻るボタン --- */
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) backToTop.classList.remove('hidden');
+      else backToTop.classList.add('hidden');
+    });
+    backToTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        window.scrollTo(0, 0);
+      }, 450);
+    });
+
+    /* --- モバイルメニュー --- */
+    const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuClose  = document.getElementById('menu-close');
+const overlay    = document.getElementById('menu-overlay');
+
+function openMenu() {
+  mobileMenu.classList.remove('translate-x-full');
+  overlay?.classList.remove('hidden');
+  menuToggle?.setAttribute('aria-expanded','true');
+  document.documentElement.style.overflow = 'hidden';
+}
+
+function closeMenu() {
+  mobileMenu.classList.add('translate-x-full');
+  overlay?.classList.add('hidden');
+  menuToggle?.setAttribute('aria-expanded','false');
+  document.documentElement.style.overflow = '';
+}
+
+// トグル
+menuToggle?.addEventListener('click', () => {
+  if (mobileMenu.classList.contains('translate-x-full')) openMenu();
+  else closeMenu();
+});
+menuClose?.addEventListener('click', closeMenu);
+overlay?.addEventListener('click', closeMenu);
+
+    mobileMenu?.querySelectorAll('a')?.forEach(a => {
+      a.addEventListener('click', (e) => {
+        const href = a.getAttribute('href') || '';
+        closeMenu();
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            const headerOffset = 80;
+            const y = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        }
+      });
+    });
+
+    window.addEventListener('pageshow', closeMenu);
+    window.addEventListener('beforeunload', closeMenu);
   });
- });
-</script>
+  </script>
 </body>
 </html>
