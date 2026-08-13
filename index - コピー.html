@@ -56,44 +56,52 @@
 </head>
 <body class="text-xs leading-loose bg-white text-gray-800 font-normal min-h-[100svh]">
 
-  <!-- ===== スプラッシュ ===== -->
+  <!-- ===== スプラッシュ（ロゴのみ表示） ===== -->
   <div id="splash" class="fixed inset-0 z-[100] bg-[#d6d5cc] flex items-center justify-center">
     <img src="img/ksy_logo.svg" alt="kankyo-synthyard" class="w-[65vw] max-w-[440px] h-auto logo-fade">
   </div>
 
-  <!-- ===== サイト全体 ===== -->
+  <!-- ===== サイト全体（初期は非表示） ===== -->
   <div id="site" class="opacity-0 pointer-events-none select-none">
 
-    <!-- ヘッダー -->
+    <!-- ヘッダー（背景 #b3b2aa） -->
     <header class="fixed top-0 left-0 w-full h-20 md:h-28 bg-[#b3b2aa] z-50 px-4 md:px-8 flex items-center justify-between pt-[env(safe-area-inset-top)]">
-      <a href="#" class="shrink-0">
-        <img src="img/ksy_logo_w.svg" alt="KANKYO Synthyard" class="h-5 md:h-8 w-auto ml-2 md:ml-0 mt-1 md:mt-1.5">
-      </a>
+      <!-- 左端：小さくしたロゴ -->
+      <div class="flex items-center">
+        <a href="#" class="shrink-0">
+          <img src="img/ksy_logo_w.svg" alt="KANKYO Synthyard" class="h-5 md:h-7 w-auto ml-2 md:ml-0 mt-1">
+        </a>
+      </div>
 
-      <div class="flex items-center gap-6">
-        <nav class="hidden xl:flex gap-8 text-white text-base">
-          <a href="#party" class="hover:underline">KANKYO Synthyard</a>
-          <a href="#access" class="hover:underline">access</a>
-          <a href="#english" class="hover:underline">english</a>
-        </nav>
+      <!-- PCナビ -->
+      <nav class="hidden xl:flex gap-8 text-white text-base relative top-[2px] md:top-[3px]">
+        <a href="#party" class="hover:underline">KANKYO Synthyard</a>
+        <a href="#access" class="hover:underline">access</a>
+        <a href="#english" class="hover:underline">english</a>
+      </nav>
 
-        <div class="flex items-center gap-4">
-          <a href="https://www.instagram.com/kankyo.synthyard/?hl=ja" target="_blank" rel="noopener noreferrer">
-            <img src="img/link_insta.svg" alt="Instagram" class="w-6 md:w-9 h-auto">
-          </a>
-          <button id="menu-toggle" class="xl:hidden w-10 h-10 flex flex-col items-center justify-center gap-[6px]" aria-label="Open menu">
-            <span class="block w-7 h-0.5 bg-white rounded"></span>
-            <span class="block w-7 h-0.5 bg-white rounded"></span>
-            <span class="block w-7 h-0.5 bg-white rounded"></span>
-          </button>
-        </div>
+      <!-- 右側：インスタアイコン ＋ ハンバーガー -->
+      <div class="flex items-center gap-4">
+        <a href="https://www.instagram.com/kankyo.synthyard/?hl=ja" target="_blank" rel="noopener noreferrer" class="shrink-0">
+          <img src="img/link_insta.svg" alt="Instagram" class="w-6 md:w-8 h-auto">
+        </a>
+        <button id="menu-toggle"
+          class="xl:hidden w-12 h-12 flex flex-col items-center justify-center gap-[7px]"
+          aria-label="Open menu" aria-expanded="false">
+          <span class="sr-only">Open menu</span>
+          <span class="block w-8 h-0.5 bg-white rounded"></span>
+          <span class="block w-8 h-0.5 bg-white rounded"></span>
+          <span class="block w-8 h-0.5 bg-white rounded"></span>
+        </button>
       </div>
     </header>
 
     <main class="flex-1">
-      <nav id="mobile-menu" class="xl:hidden fixed inset-y-0 right-0 w-60 max-w-[70vw] bg-[#676354] px-6 py-6 translate-x-full z-50 shadow-xl transition-transform duration-300 ease-out">
+      <!-- モバイルメニュー -->
+      <nav id="mobile-menu"
+        class="xl:hidden fixed inset-y-0 right-0 w-60 max-w-[70vw] bg-[#676354] px-6 py-6 transition-transform duration-300 ease-out translate-x-full z-50 shadow-xl">
         <button id="menu-close" class="text-3xl mb-2 text-white">×</button>
-        <div class="mt-10 space-y-5">
+        <div class="mt-10 space-y-5 leading-[32px]">
           <a href="#party" class="block text-white text-base">KANKYO Synthyard</a>
           <a href="#access" class="block text-white text-base">access</a>
           <a href="#english" class="block text-white text-base">english</a>
@@ -102,19 +110,20 @@
       <div id="menu-overlay" class="fixed inset-0 bg-white/30 z-40 hidden"></div>
 
       <!-- Free Open Air Party -->
-      <section id="party" class="scroll-mt-20 pt-36 md:pt-48 pb-12 bg-white text-left">
+      <section id="party" class="scroll-mt-20 pt-36 md:pt-48 pb-12 md:pb-16 bg-white text-left">
         <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40">
           <h2 class="text-xl md:text-2xl font-semibold mb-6 md:mb-8 text-[#514c47]">Free Open Air Party</h2>
-          <div class="text-xs md:text-base leading-[2] md:leading-loose max-w-none">
-            <p>夕刻を迎える屋外のロケーションと電子音で、誰もが自由に過ごせる心地良い空間をつくるプロジェクト</p>
+          <div class="text-xs md:text-base leading-[2] md:leading-loose lg:leading-[2.2] max-w-none">
+            <p>
+              夕刻を迎える屋外のロケーションと電子音で、誰もが自由に過ごせる心地良い空間をつくるプロジェクト</p>
             <span class="block mb-6"></span>
             <p><strong class="text-sm md:text-base font-semibold text-gray-800">Machine Live Sets Only</strong></p>
 
             <p class="mt-4">
               2026年9月5日（土） 日没前後（15:00–18:30）<br>
-              木更津市 潮浜公園 多目的広場（<a href="#access" class="underline hover:text-[#514c47]">千葉県木更津市潮浜1-12</a>）<br>
+              木更津市 潮浜公園 多目的広場（千葉県木更津市潮浜1-12）<br>
               入場無料<br>
-              雨天延期（予備日: 9月12日） ※当日の開催判断は公式SNS等で告知
+              雨天延期（予備日: 9月12日）<br> ※当日の開催判断は公式SNS等で告知
             </p>
 
             <div class="mt-6 md:mt-8 mb-6 md:mb-8">
@@ -128,20 +137,10 @@
         </div>
       </section>
 
-      <!-- 地図 -->
-      <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40 mb-12 md:mb-16">
-        <div class="max-w-2xl mx-auto bg-gray-200 rounded overflow-hidden shadow-sm">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13012.27847521053!2d139.89781955960828!3d35.37872925843526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018733226cf322d%3A0x10e46224828e3c21!2z5r2u5rWc5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1786526780680!5m2!1sja!2sjp" class="w-full h-[300px] md:h-[350px]" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-        </div>
-      </div>
-
-      <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40 my-6 md:my-8">
-        <div class="border-t border-[#b3b2aa]"></div>
-      </div>
-
-      <!-- ACCESS -->
-      <section id="access" class="scroll-mt-20 pt-8 md:pt-10 pb-12 md:pb-16 bg-white text-left">
+      <!-- ACCESS & ABOUT & MANNER -->
+      <section id="access" class="scroll-mt-20 pt-8 md:pt-10 pb-6 md:pb-8 bg-white text-left">
         <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40">
+          <h2 class="text-xl md:text-2xl font-semibold mb-6 md:mb-8 text-[#514c47]">アクセス</h2>
           <div class="text-xs md:text-base leading-[2] md:leading-loose lg:leading-[2.2] max-w-none">
 
             <div class="mb-8 md:mb-12">
@@ -149,7 +148,7 @@
               <p>JR内房線「木更津駅」西口より 徒歩約20分</p>
             </div>
             
-            <div class="mt-10 md:mt-12 mb-14 md:mb-20">
+            <div class="mt-10 md:mt-12 mb-10 md:mb-14">
               <p class="mb-2 md:mb-3"><strong class="font-semibold text-gray-800">車</strong></p>
               <p>
                 東京湾アクアライン連絡道「木更津金田IC」または館山自動車道「木更津南IC」より約15分<br>
@@ -157,11 +156,26 @@
               </p>
             </div>
 
-            <div class="my-10 md:my-16">
+          </div>
+        </div>
+      </section>
+
+      <!-- 地図（アクセスの下・左寄せ） -->
+      <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40 mb-12 md:mb-16">
+        <div class="max-w-2xl bg-gray-200 rounded overflow-hidden shadow-sm">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13012.27847521053!2d139.89781955960828!3d35.37872925843526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018733226cf322d%3A0x10e46224828e3c21!2z5r2u5rWc5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1786526780680!5m2!1sja!2sjp" class="w-full h-[300px] md:h-[350px]" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+      </div>
+
+      <!-- この場について・マナーなど（アクセスセクションの続き） -->
+      <section class="pb-12 md:pb-16 bg-white text-left">
+        <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40">
+          <div class="text-xs md:text-base leading-[2] md:leading-loose lg:leading-[2.2] max-w-none">
+            <div class="my-6 md:my-10">
               <div class="border-t border-[#b3b2aa]"></div>
             </div>
 
-            <div class="mt-12 md:mt-16 mb-8 md:mb-12">
+            <div class="mt-8 md:mt-12 mb-8 md:mb-12">
               <p class="mb-2 md:mb-3"><strong class="font-semibold text-gray-800">この場について</strong></p>
               <p>入場無料のオープンな取り組みです。特定のエリアを占有することはありません。公園を散歩するような自由なスタイルで、それぞれの距離感で空間をお楽しみください。</p>
             </div>
@@ -175,11 +189,11 @@
               <p class="mb-2 md:mb-3"><strong class="font-semibold text-gray-800">免責事項</strong></p>
               <p>滞在中、および移動時に発生した事故・怪我・盗難・トラブル等について、主催者および関係者は一切の責任を負いかねます。各自の責任のもとお過ごしください。</p>
             </div>
-
           </div>
         </div>
       </section>
 
+      <!-- 区切り線 -->
       <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40 my-6 md:my-8">
         <div class="border-t border-[#b3b2aa]"></div>
       </div>
@@ -224,11 +238,12 @@
         </div>
       </section>
 
-      <!-- フッター -->
+      <!-- フッター（背景 #b3b2aa） -->
       <footer class="scroll-mt-20 bg-[#b3b2aa] text-center text-sm text-white pb-[env(safe-area-inset-bottom)]">
         <div class="py-6">&copy; 2026 KANKYO Synthyard all rights reserved.</div>
       </footer>
 
+      <!-- トップへ戻る -->
       <a href="#" id="backToTop"
          class="fixed bottom-20 right-4 w-12 h-12 bg-[#797574] text-white text-xl
                 flex items-center justify-center text-center leading-none
@@ -266,8 +281,8 @@
 
     /* --- スプラッシュ制御 --- */
     const splash = document.getElementById('splash');
-    const site   = document.getElementById('site');
-    const logo   = splash.querySelector('img');
+    const site  = document.getElementById('site');
+    const logo  = splash.querySelector('img');
 
     function revealSite() {
       splash.style.display = 'none';
