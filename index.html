@@ -66,10 +66,15 @@
 
     <!-- ヘッダー（背景 #b3b2aa） -->
     <header class="fixed top-0 left-0 w-full h-20 md:h-28 bg-[#b3b2aa] z-50 px-4 md:px-8 flex items-center justify-between pt-[env(safe-area-inset-top)]">
-      <!-- 左端：ロゴ（さらに拡大） -->
-      <a href="#" class="shrink-0">
-        <img src="img/ksy_logo_w.svg" alt="KANKYO Synthyard" class="h-9 md:h-14 w-auto ml-2 md:ml-0 mt-1 md:mt-1.5">
-      </a>
+      <!-- 左端：ロゴとインスタアイコンの並び -->
+      <div class="flex items-center gap-4 md:gap-6">
+        <a href="#" class="shrink-0">
+          <img src="img/ksy_logo_w.svg" alt="KANKYO Synthyard" class="h-9 md:h-14 w-auto ml-2 md:ml-0 mt-1 md:mt-1.5">
+        </a>
+        <a href="https://www.instagram.com/kankyo.synthyard/?hl=ja" target="_blank" rel="noopener noreferrer" class="shrink-0 mt-1 md:mt-1.5">
+          <img src="img/link_insta.svg" alt="Instagram" class="w-6 md:w-9 h-auto">
+        </a>
+      </div>
 
       <!-- PCナビ -->
       <nav class="hidden xl:flex gap-8 text-white text-base relative top-[2px] md:top-[3px]">
@@ -110,39 +115,33 @@
             <p>
               夕刻を迎える屋外のロケーションと電子音で、誰もが自由に過ごせる心地良い空間をつくるプロジェクト <span class="italic">KANKYO Synthyard</span>           </p>
             <span class="block mb-6"></span>
-            <p><strong class="font-semibold text-gray-800">Machine Live Sets Only</strong></p>
+            <p><strong class="text-sm md:text-base font-semibold text-gray-800">Machine Live Sets Only</strong></p>
 
             <p class="mt-4">
               2026年9月5日（土） 日没前後（15:00–18:30）<br>
               木更津市 潮浜公園 多目的広場（千葉県木更津市潮浜1-12）<br>
-              入場無料（Free Entry）<br>
+              入場無料<br>
               雨天延期（予備日: 9月12日） ※当日の開催判断は公式SNS等で告知
             </p>
 
-            <div class="mt-6 md:mt-8 mb-4 md:mb-6">
-              <p class="mb-2 md:mb-3"><strong class="font-semibold text-gray-800">LIVE ACT</strong></p>
-              <p><a href="https://www.instagram.com/tn0bu/?hl=ja" target="_blank" rel="noopener noreferrer" class="hover:underline">@tn0bu</a></p>
-              <p><a href="https://www.instagram.com/toomotakaagi/?hl=ja" target="_blank" rel="noopener noreferrer" class="hover:underline">@toomotakaagi</a></p>
-              <p><a href="https://www.instagram.com/taketomi76/?hl=ja" target="_blank" rel="noopener noreferrer" class="hover:underline">@taketomi76</a></p>
-            </div>
-
-            <!-- インスタアイコン下のアキを少しせばめる -->
-            <div class="mt-10 md:mt-10 mb-2 md:mb-4">
-              <p class="flex gap-6 items-center">
-                <a href="https://www.instagram.com/kankyo.synthyard/?hl=ja" target="_blank" rel="noopener noreferrer">
-                  <img src="img/ig.png" alt="Instagram" class="w-8 md:w-12 h-auto">
-                </a>
-              </p>
+            <div class="mt-6 md:mt-8 mb-6 md:mb-8">
+              <p class="mb-3 md:mb-4"><strong class="text-sm md:text-base font-semibold text-gray-800">LIVE ACT</strong></p>
+              <p class="mb-1.5"><a href="https://www.instagram.com/tn0bu/?hl=ja" target="_blank" rel="noopener noreferrer" class="hover:underline">@tn0bu</a></p>
+              <p class="mb-1.5"><a href="https://www.instagram.com/toomotakaagi/?hl=ja" target="_blank" rel="noopener noreferrer" class="hover:underline">@toomotakaagi</a></p>
+              <p class="mb-1.5"><a href="https://www.instagram.com/taketomi76/?hl=ja" target="_blank" rel="noopener noreferrer" class="hover:underline">@taketomi76</a></p>
             </div>
 
           </div>
         </div>
       </section>
 
-      <!-- 区切り線 -->
-      <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40 my-6 md:my-8">
-        <div class="border-t border-[#b3b2aa]"></div>
+      <!-- 地図（LIVE ACT直下に配置、左右は適度なサイズ） -->
+      <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40 mb-12 md:mb-16">
+        <div class="max-w-2xl mx-auto bg-gray-200 rounded overflow-hidden shadow-sm">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13012.27847521053!2d139.89781955960828!3d35.37872925843526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018733226cf322d%3A0x10e46224828e3c21!2z5r2u5rWc5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1786526780680!5m2!1sja!2sjp" class="w-full h-[300px] md:h-[350px]" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
       </div>
+
 
       <!-- ACCESS & ABOUT & MANNER -->
       <section id="access" class="scroll-mt-20 pt-8 md:pt-10 pb-12 md:pb-16 bg-white text-left">
@@ -150,38 +149,35 @@
           <div class="text-xs md:text-base leading-[2] md:leading-loose lg:leading-[2.2] max-w-none">
 
             <div class="mb-8 md:mb-12">
-              <p class="mb-2 md:mb-3"><strong class="font-semibold text-gray-800">電車でお越しの場合</strong></p>
+              <p class="mb-2 md:mb-3"><strong class="font-semibold text-gray-800">電車</strong></p>
               <p>JR内房線「木更津駅」西口より 徒歩約20分</p>
             </div>
             
-            <!-- 「お車でお越しの場合」と「この場について」の間を他の項目と同じ余白に統一 -->
-            <div class="mt-10 md:mt-12 mb-8 md:mb-12">
-              <p class="mb-2 md:mb-3"><strong class="font-semibold text-gray-800">車でお越しの場合</strong></p>
+            <div class="mt-10 md:mt-12 mb-14 md:mb-20">
+              <p class="mb-2 md:mb-3"><strong class="font-semibold text-gray-800">車</strong></p>
               <p>
                 東京湾アクアライン連絡道「木更津金田IC」または館山自動車道「木更津南IC」より約15分<br>
                 公園内無料駐車場あり（台数に限りがあるため、満車時は近隣の有料駐車場または公共交通機関をご利用ください）
               </p>
             </div>
 
-            <!-- 区切り線 -->
-            <div class="my-6 md:my-8">
+            <div class="my-10 md:my-16">
               <div class="border-t border-[#b3b2aa]"></div>
             </div>
 
-            <div class="mt-10 md:mt-12 mb-8 md:mb-12">
+            <div class="mt-12 md:mt-16 mb-8 md:mb-12">
               <p class="mb-2 md:mb-3"><strong class="font-semibold text-gray-800">この場について</strong></p>
-              <p>本企画は入場無料（Free Entry）のオープンな取り組みです。特定のエリアを占有することはありません。公園を散歩するような自由なスタイルで、それぞれの距離感で空間をお楽しみください。</p>
+              <p>入場無料のオープンな取り組みです。特定のエリアを占有することはありません。公園を散歩するような自由なスタイルで、それぞれの距離感で空間をお楽しみください。</p>
             </div>
 
             <div class="mt-10 md:mt-12 mb-8 md:mb-12">
               <p class="mb-2 md:mb-3"><strong class="font-semibold text-gray-800">マナーとお願い</strong></p>
-              <p>特別なイベント会場ではなく、誰もが使う公共の公園です。各自がただ公園を利用する一人として、ゴミのお持ち帰りや周囲への配慮など、マナーを守った良識ある行動をお願いいたします。</p>
+              <p>特別なイベント会場ではなく、誰もが使う公共のスペースです。公園を利用する一人として、ゴミの持ち帰りや周囲への配慮など、マナーを守った良識ある行動をお願いいたします。</p>
             </div>
 
-            <!-- 免責事項テキスト下の空間を詰める (mbを小さく) -->
             <div class="mt-10 md:mt-12 mb-4 md:mb-6">
               <p class="mb-2 md:mb-3"><strong class="font-semibold text-gray-800">免責事項</strong></p>
-              <p>ご滞在中、および移動時に発生した事故・怪我・盗難・トラブル等について、主催者および関係者は一切の責任を負いかねます。各自の責任のもとお過ごしください。</p>
+              <p>滞在中、および移動時に発生した事故・怪我・盗難・トラブル等について、主催者および関係者は一切の責任を負いかねます。各自の責任のもとお過ごしください。</p>
             </div>
 
           </div>
@@ -193,7 +189,7 @@
         <div class="border-t border-[#b3b2aa]"></div>
       </div>
 
-      <!-- English (料金と雨天順延を別項目に分割) -->
+      <!-- English -->
       <section id="english" class="scroll-mt-20 pt-10 md:pt-12 pb-12 md:pb-16 bg-white text-left">
         <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40">
           <div class="history-grid text-xs md:text-base leading-[2] md:leading-loose lg:leading-[2.2]">
@@ -204,7 +200,7 @@
             <div>Free Entry</div>
 
             <div class="text-gray-800">Rain Date:</div>
-<div>September 12 in case of rain (Event status will be announced on official social media)</div>
+            <div>September 12 in case of rain (Event status will be announced on official social media)</div>
 
             <div class="text-gray-800">LIVE ACT</div>
             <div>
@@ -232,11 +228,6 @@
           </div>
         </div>
       </section>
-
-      <!-- 地図 -->
-      <div class="w-full bg-gray-200 mt-0 md:mt-4">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13012.27847521053!2d139.89781955960828!3d35.37872925843526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018733226cf322d%3A0x10e46224828e3c21!2z5r2u5rWc5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1786526780680!5m2!1sja!2sjp" class="w-full h-[400px] md:h-[450px]" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      </div>
 
       <!-- フッター（背景 #b3b2aa） -->
       <footer class="scroll-mt-20 bg-[#b3b2aa] text-center text-sm text-white pb-[env(safe-area-inset-bottom)]">
