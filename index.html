@@ -54,7 +54,7 @@
     }
   </style>
 </head>
-<body class="text-xs leading-loose bg-white text-gray-800 font-normal min-h-[100svh]">
+<body class="text-xs leading-loose bg-white text-gray-800 font-normal min-h-[100svh] flex flex-col">
 
   <!-- ===== スプラッシュ（ロゴのみ表示） ===== -->
   <div id="splash" class="fixed inset-0 z-[100] bg-[#d6d5cc] flex items-center justify-center">
@@ -62,7 +62,7 @@
   </div>
 
   <!-- ===== サイト全体（初期は非表示） ===== -->
-  <div id="site" class="opacity-0 pointer-events-none select-none">
+  <div id="site" class="opacity-0 pointer-events-none select-none flex flex-col min-h-[100svh]">
 
     <!-- ヘッダー（背景 #b3b2aa） -->
     <header class="fixed top-0 left-0 w-full h-20 md:h-28 bg-[#b3b2aa] z-50 px-4 md:px-8 flex items-center justify-between pt-[env(safe-area-inset-top)]">
@@ -73,26 +73,28 @@
         </a>
       </div>
 
-      <!-- PCナビ -->
-      <nav class="hidden xl:flex gap-8 text-white text-base relative top-[2px] md:top-[3px]">
-        <a href="#party" class="hover:underline">KANKYO Synthyard</a>
-        <a href="#access" class="hover:underline">アクセス</a>
-        <a href="#english" class="hover:underline">english</a>
-      </nav>
+      <!-- 右側（PCナビ ＋ インスタアイコン ＋ ハンバーガー） -->
+      <div class="flex items-center">
+        <!-- PCナビ：インスタの少し左に配置・適度な間隔 -->
+        <nav class="hidden xl:flex gap-8 text-white text-base relative top-[2px] md:top-[3px] mr-10">
+          <a href="#party" class="hover:underline">KANKYO Synthyard</a>
+          <a href="#access" class="hover:underline">アクセス</a>
+          <a href="#english" class="hover:underline">english</a>
+        </nav>
 
-      <!-- 右側：インスタアイコン ＋ ハンバーガー -->
-      <div class="flex items-center gap-4">
-        <a href="https://www.instagram.com/kankyo.synthyard/?hl=ja" target="_blank" rel="noopener noreferrer" class="shrink-0">
-          <img src="img/link_insta.svg" alt="Instagram" class="w-6 md:w-8 h-auto">
-        </a>
-        <button id="menu-toggle"
-          class="xl:hidden w-12 h-12 flex flex-col items-center justify-center gap-[7px]"
-          aria-label="Open menu" aria-expanded="false">
-          <span class="sr-only">Open menu</span>
-          <span class="block w-8 h-0.5 bg-white rounded"></span>
-          <span class="block w-8 h-0.5 bg-white rounded"></span>
-          <span class="block w-8 h-0.5 bg-white rounded"></span>
-        </button>
+        <div class="flex items-center gap-4">
+          <a href="https://www.instagram.com/kankyo.synthyard/?hl=ja" target="_blank" rel="noopener noreferrer" class="shrink-0">
+            <img src="img/link_insta.svg" alt="Instagram" class="w-6 md:w-8 h-auto">
+          </a>
+          <button id="menu-toggle"
+            class="xl:hidden w-12 h-12 flex flex-col items-center justify-center gap-[7px]"
+            aria-label="Open menu" aria-expanded="false">
+            <span class="sr-only">Open menu</span>
+            <span class="block w-8 h-0.5 bg-white rounded"></span>
+            <span class="block w-8 h-0.5 bg-white rounded"></span>
+            <span class="block w-8 h-0.5 bg-white rounded"></span>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -171,9 +173,7 @@
       <section class="pb-12 md:pb-16 bg-white text-left">
         <div class="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-40">
           <div class="text-xs md:text-base leading-[2] md:leading-loose lg:leading-[2.2] max-w-none">
-            <div class="my-6 md:my-10">
-              <div class="border-t border-[#b3b2aa]"></div>
-            </div>
+
 
             <div class="mt-8 md:mt-12 mb-8 md:mb-12">
               <p class="mb-2 md:mb-3"><strong class="font-semibold text-gray-800">この場について</strong></p>
@@ -237,19 +237,19 @@
           </div>
         </div>
       </section>
-
-      <!-- フッター（背景 #b3b2aa） -->
-      <footer class="scroll-mt-20 bg-[#b3b2aa] text-center text-sm text-white pb-[env(safe-area-inset-bottom)]">
-        <div class="py-6">&copy; 2026 KANKYO Synthyard all rights reserved.</div>
-      </footer>
-
-      <!-- トップへ戻る -->
-      <a href="#" id="backToTop"
-         class="fixed bottom-20 right-4 w-12 h-12 bg-[#797574] text-white text-xl
-                flex items-center justify-center text-center leading-none
-                rounded-full shadow hover:bg-[#797574] z-50 hidden
-                border border-white">↑</a>
     </main>
+
+    <!-- フッター（背景 #b3b2aa） -->
+    <footer class="scroll-mt-20 bg-[#b3b2aa] text-center text-sm text-white pb-[env(safe-area-inset-bottom)] mt-auto">
+      <div class="py-6">&copy; 2026 KANKYO Synthyard all rights reserved.</div>
+    </footer>
+
+    <!-- トップへ戻る -->
+    <a href="#" id="backToTop"
+       class="fixed bottom-20 right-4 w-12 h-12 bg-[#797574] text-white text-xl
+              flex items-center justify-center text-center leading-none
+              rounded-full shadow hover:bg-[#797574] z-50 hidden
+              border border-white">↑</a>
   </div><!-- /#site -->
 
   <!-- JS -->
